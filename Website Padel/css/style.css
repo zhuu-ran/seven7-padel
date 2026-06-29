@@ -1,0 +1,1223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafc;
+    gap: 20px;
+    padding: 15px 40px;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.venue, .play {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.34);
+    font-weight: 500;
+}
+
+.btn-regist {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    border: 2px solid #4b4b4d;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    background-color: #4b4b4d;
+}
+
+.btn-sign {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 20px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.34);
+}
+
+.venue:hover, .play:hover {
+    color: #4b4b4d;
+}
+
+.btn-sign:hover {
+    color: #4b4b4d;
+}
+
+.btn-regist:hover {
+    color: #4b4b4d;
+    background-color: rgb(255, 255, 255);
+}
+
+.content-1 {
+    max-width: 900px;
+    margin: 0 auto;
+    padding:20px;
+}
+
+.slider-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.foto-slider {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.foto-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.foto-slider img {
+    min-width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.5);
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev { left: 30px; }
+.next { right: 30px; }
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.dot.active {
+    background: #000;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-box {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-box h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.modal-box input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    outline: none;
+}
+
+.modal-box input:focus {
+    border-color: #000;
+}
+
+.btn-submit {
+    padding: 12px;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.modal-box p {
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+}
+
+.modal-box a {
+    color: #000;
+    font-weight: 600;
+}
+
+.modal-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input-password {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.input-password input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+    color: #555;
+}
+
+.btn-logout {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    border: 2px solid #4b4b4d;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    background-color: #4b4b4d;
+}
+
+.btn-logout:hover {
+    color: #4b4b4d;
+    background-color: rgb(255, 255, 255);
+}
+
+.content-2 {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.desc-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.desc-left {
+    flex: 2;
+}
+
+.desc-left h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.desc-sub {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.desc-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.desc-section h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.desc-section p, .desc-section li {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+.desc-section ol {
+    padding-left: 18px;
+}
+
+.fasilitas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.fasilitas-grid span {
+    font-size: 13px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.desc-right {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+}
+
+.price-card {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.price-label {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+.price-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.price-card h3 span {
+    font-size: 13px;
+    font-weight: 400;
+    color: #777;
+}
+
+.btn-cek {
+    display: block;
+    text-align: center;
+    background: #4b4b4d;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.btn-cek:hover {
+    background: #333;
+}
+
+.content-3 {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.lapangan-wrapper h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.tanggal-wrapper {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.tanggal-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.tanggal-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #555;
+    background: #f5f5f5;
+    min-width: 70px;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.tanggal-item:hover {
+    background: #e0e0e0;
+}
+
+.tanggal-item.active {
+    background: #4b4b4d;
+    color: white;
+}
+
+.tanggal-item .hari {
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.tanggal-item .tgl {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.lapangan-card {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.lapangan-kiri img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.no-foto {
+    width: 220px;
+    height: 220px;
+}
+
+.lapangan-kanan {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.lapangan-kanan h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.lapangan-lokasi {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.jadwal-badge {
+    display: inline-block;
+    background: #4b4b4d;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    margin-top: 12px;
+}
+
+.slot-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.slot-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    min-width: 120px;
+    text-align: center;
+    gap: 4px;
+    width: calc(25% - 8px);
+}
+
+.slot-item.booked {
+    background: #f5f5f5;
+    opacity: 0.6;
+}
+
+.slot-item.available {
+    background: white;
+}
+
+.slot-durasi {
+    font-size: 11px;
+    color: #999;
+}
+
+.slot-jam {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
+
+.slot-harga {
+    font-size: 12px;
+    color: #555;
+}
+
+.slot-status-booked {
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+}
+
+.btn-book {
+    padding: 6px 14px;
+    background: #4b4b4d;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-book:hover {
+    background: #333;
+}
+
+.footer {
+    background: #111;
+    color: white;
+    margin-top: 60px;
+    padding: 40px 20px 0;
+}
+
+.footer-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 30px;
+}
+
+.footer-col h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.footer-col h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #aaa;
+}
+
+.footer-col p, .footer-col a {
+    font-size: 13px;
+    color: #aaa;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 6px;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: white;
+}
+
+.footer-sosmed {
+    display: flex;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.footer-sosmed a {
+    color: #aaa;
+    font-size: 18px;
+    display: inline;
+}
+
+.footer-sosmed a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 12px;
+    color: #666;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.lapangan-tipe {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.venue-page {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.venue-search-bar {
+    margin-bottom: 20px;
+}
+
+.search-form-venue {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 12px 20px;
+    flex: 1;
+    background: white;
+}
+
+.search-input i {
+    color: #aaa;
+}
+
+.search-input input {
+    border: none;
+    outline: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    width: 100%;
+}
+
+.btn-cari {
+    padding: 12px 28px;
+    background: #4b4b4d;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+}
+
+.btn-reset {
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #555;
+    font-family: "Montserrat", sans-serif;
+}
+
+.venue-info-bar {
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #777;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.venue-info-bar strong {
+    color: #333;
+}
+
+.venue-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.venue-card {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: box-shadow 0.2s;
+    background: white;
+}
+
+.venue-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.venue-card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.venue-card-noimg {
+    width: 100%;
+    height: 200px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #ccc;
+}
+
+.venue-card-info {
+    padding: 16px;
+}
+
+.venue-card-type {
+    font-size: 11px;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.venue-card-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.venue-card-lokasi {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+.venue-card-tipe {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.venue-card-harga {
+    font-size: 13px;
+    color: #555;
+}
+
+.venue-card-harga strong {
+    color: #333;
+    font-weight: 700;
+}
+
+.booking-page {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.booking-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.booking-left {
+    flex: 2;
+}
+
+.booking-left h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.booking-error {
+    background: #fde8e8;
+    color: #c0392b;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.booking-info-card {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.booking-info-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.booking-info-detail h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.booking-info-detail p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.booking-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.slot-picker {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.slot-pick-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    gap: 4px;
+    transition: all 0.2s;
+}
+
+.slot-pick-item input[type="radio"] {
+    display: none;
+}
+
+.slot-pick-item.selected, .slot-pick-item:has(input:checked) {
+    border-color: #4b4b4d;
+    background: #f5f5f5;
+}
+
+.slot-pick-item:hover {
+    border-color: #4b4b4d;
+}
+
+.slot-pick-durasi {
+    font-size: 11px;
+    color: #999;
+}
+
+.slot-pick-jam {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
+
+.slot-pick-harga {
+    font-size: 12px;
+    color: #555;
+}
+
+.btn-booking-submit {
+    padding: 14px;
+    background: #4b4b4d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+}
+
+.btn-booking-submit:hover {
+    background: #333;
+}
+
+.booking-right {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+}
+
+.booking-summary {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.booking-summary h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+}
+
+.summary-row span:last-child {
+    font-weight: 600;
+    color: #333;
+}
+
+.summary-status {
+    background: #fff3cd;
+    color: #856404;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.summary-note {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #777;
+    line-height: 1.6;
+    display: flex;
+    gap: 8px;
+}
+
+.summary-note i {
+    color: #25D366;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.sukses-page {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.sukses-card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.sukses-icon {
+    font-size: 60px;
+    color: #2d7a3a;
+    margin-bottom: 16px;
+}
+
+.sukses-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.sukses-card > p {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 24px;
+}
+
+.kode-booking {
+    background: #f5f5f5;
+    border: 2px dashed #4b4b4d;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    color: #4b4b4d;
+}
+
+.sukses-detail {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.sukses-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+}
+
+.sukses-row span:last-child {
+    font-weight: 600;
+    color: #333;
+}
+
+.sukses-note {
+    background: #f0fff4;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    text-align: left;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.sukses-note i {
+    color: #25D366;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.sukses-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: #25D366;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-wa:hover {
+    background: #1fba58;
+}
+
+.banner-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.banner-text {
+    padding: 50px 40px;
+    flex: 1;
+}
+
+.banner-text h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.banner-text p {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.banner-section img {
+    width: 55%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.openplay-page {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.openplay-header {
+    margin-bottom: 30px;
+}
+
+.openplay-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.openplay-header p {
+    font-size: 13px;
+    color: #777;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.event-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    background: white;
+    transition: box-shadow 0.2s;
+}
+
+.event-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 16px;
+}
+
+.event-tag {
+    display: inline-block;
+    background: #4b4b4d;
+    color: white;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+
+.event-info h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.event-info p {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.banner-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.banner-text {
+    padding: 50px 40px;
+    flex: 1;
+}
+
+.banner-text h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.banner-text p {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.banner-section img {
+    width: 55%;
+    height: 400px;
+    object-fit: cover;
+}
