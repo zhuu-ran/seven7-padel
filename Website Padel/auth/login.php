@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: ../admin/dashboard.php');
     }   
         else {
-        $redirect = isset($_POST['redirect']) ? $_POST['redirect'] : '../index.php';
+        $redirect = isset($_POST['redirect']) ? $_POST['redirect'] : 'index.php';
         header('Location: ../' . $redirect);
     }
         exit();
